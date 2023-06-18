@@ -7,8 +7,8 @@ This is a deconstruction of the [Smash the Walls](https://smashthewalls.com/) we
 
 ![Smash the Walls - The Useless Web](_readme/screenshot-smashthewalls.png)
 
-Current result is available here:  
-https://codeadamca.github.io/deconstruction-smashthewalls/deconstruction.html
+> Current result is available at  
+> https://codeadamca.github.io/deconstruction-smashthewalls/deconstruction.html
 
 ---
 
