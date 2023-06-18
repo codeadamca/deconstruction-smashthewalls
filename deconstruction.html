@@ -7,13 +7,79 @@
     <title>Smash the Walls Deconstruction</title>
 
     <style>
-      body {
+      html,
+      body,
+      svg {
         margin: 0;
         padding: 0;
+        width: 100%;
+        height: 100%;
       }
     </style>
   </head>
   <body>
-    <canvas id="canvas"></canvas>
+    <svg id="svg" width="100%" height="100%"></svg>
+
+    <script>
+      window.onload = () => {
+        let rowCount = 4;
+        let colCount = 8;
+
+        let width = document.body.offsetWidth;
+        let height = document.body.offsetHeight;
+
+        let stray = 50;
+
+        const svgns = "http://www.w3.org/2000/svg";
+        const svg = document.getElementById("svg");
+        svg.setAttribute("width", width);
+        svg.setAttribute("height", height);
+
+        let points = getPoints(width, height, rowCount, colCount, stray);
+
+        console.log(points);
+        for (let row of points) {
+          for (let col of row) {
+            let dot = document.createElementNS(svgns, "circle", svg);
+            dot.setAttributeNS(null, "cx", col.x);
+            dot.setAttributeNS(null, "cy", col.y);
+            dot.setAttributeNS(null, "r", 10);
+            dot.setAttributeNS(null, "fill", "red");
+            svg.appendChild(dot);
+          }
+        }
+      };
+
+      let getPoints = (width, height, rows, cols, stray) => {
+        let points = [];
+
+        let widthInt = width / cols;
+        let heightInt = height / rows;
+
+        console.log("cols: " + cols);
+        console.log("rows: " + rows);
+
+        for (let i = 0; i <= cols; i++) {
+          let next = [];
+
+          for (let j = 0; j <= rows; j++) {
+            let x = i * widthInt + (Math.random() * stray * 2 - stray);
+            let y = j * heightInt + (Math.random() * stray * 2 - stray);
+
+            if (i == 0) x = 0;
+            else if (i == cols) x = width;
+
+            if (j == 0) y = 0;
+            else if (j == rows) y = height;
+
+            next.push({x: x, y: y});
+          }
+
+          points.push(next);
+        }
+
+        return points;
+      };
+    </script>
   </body>
 </html>
