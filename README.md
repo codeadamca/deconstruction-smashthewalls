@@ -1,6 +1,6 @@
 # Useless Web Deconstruction - Smash the Web
 
-> **Warning**  
+> [!Warning]  
 > This repo is a work in progress!
 
 This is a deconstruction of the [Smash the Walls](https://smashthewalls.com/) website found on [The Useless Web](https://theuselessweb.com/).
